@@ -79,6 +79,8 @@ npx husky add .husky/commit-msg "yarn commitlint --edit $1"
   }
 }
 // 为什么最后要加 git add，因为git add前面代码不报错的话，可能会对代码格式化，所以上面命令执行结束后要重新add，之后再git commit
+
+// ps：在后续使用中，lint-stated 提示将git add 删除，所以还是给去掉了
 ```
 
 校验 commit msg 格式
