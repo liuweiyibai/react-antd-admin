@@ -38,10 +38,12 @@
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
       "yarn lint --fix",
-      "yarn format"
+      "yarn format",
+      "git add"
     ],
     "*.{css,scss,less}": [
-      "yarn lint:style"
+      "yarn lint:style",
+      "git add"
     ]
   },
   "browserslist": {
