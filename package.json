@@ -36,7 +36,7 @@
     "lint:style": "stylelint \"**/*.{less,css,scss}\" --ignore-path .gitignore"
   },
   "lint-staged": {
-    "src/*.{js,jsx,ts,tsx}": [
+    "src/**/*.{js,jsx,ts,tsx}": [
       "yarn lint --fix",
       "yarn format"
     ],

@@ -20,7 +20,7 @@ const LoginForm: FC = () => {
   const dispatch = useAppDispatch();
 
   const onFinished = async (form: LoginParams) => {
-    const res = await dispatch(await loginAsync(form));
+    const res = await dispatch(loginAsync(form));
     if (res) {
       const search = formatSearch(location.search);
       const from = search.from || { pathname: '/dashboard' };

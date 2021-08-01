@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction, Dispatch } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, Dispatch, ThunkDispatch } from '@reduxjs/toolkit';
 import { apiLogin, apiLogout } from 'api/user.api';
 import { LoginParams, Role } from 'interface/user/login';
 import { Locale, UserState } from 'interface/user/user';
@@ -36,7 +36,7 @@ export const { setUserItem } = userSlice.actions;
 export default userSlice.reducer;
 
 export const loginAsync = (payload: LoginParams) => {
-  return async (dispatch: Dispatch) => {
+  return async (dispatch: Dispatch): Promise<boolean> => {
     const { result, status } = await apiLogin(payload);
     if (status) {
       localStorage.setItem('t', result.token);
