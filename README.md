@@ -30,14 +30,47 @@ yarn add eslint  --dev
 yarn add eslint-config-alloy --dev
 ```
 
+stylelint
+
+```bash
+yarn add stylelint stylelint-scss stylelint-config-standard stylelint-config-recess-order --dev
+```
+
 ## preitter
 
 ```bash
 yarn add prettier  --dev
 ```
 
-## 自动格式化
+## 代码提交
 
 ```bash
 yarn add lint-staged husky --dev
 ```
+
+在 pacage.json 中添加
+
+```json
+"scripts":{
+  // 每次 install 前检查 huskey 是否初始化钩子
+  "prepare":"husky instll"
+}
+```
+
+添加 husky 钩子
+
+```bash
+# 每次提交前执行pretty命令
+npx husky add .husky/pre-commit "lint-staged"
+
+#  对 git 提交信息拦截 yarn commitlint --edit $1
+npx husky add .husky/commit-msg "yarn commitlint --edit $1"
+```
+
+## 自定义 webpack 配置
+
+umi 和 craco 还有 react-app-rewired
+
+[更骚的 create-react-app 开发环境配置 craco](https://segmentfault.com/a/1190000038221692)
+
+[create-react-app 优雅定制指南](https://zhuanlan.zhihu.com/p/96103181)
