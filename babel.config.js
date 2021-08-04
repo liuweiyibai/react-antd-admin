@@ -1,6 +1,11 @@
 module.exports = {
   presets: [
-    '@babel/preset-env',
+    [
+      '@babel/preset-env',
+      {
+        loose: true,
+      },
+    ],
     [
       '@babel/preset-react',
       {
@@ -8,6 +13,7 @@ module.exports = {
       },
     ],
   ],
+
   plugins: [
     '@loadable/babel-plugin',
     [
