@@ -11,7 +11,7 @@ import RenderRouter from './routes';
 import { useAppState } from 'stores';
 
 const App: React.FC = () => {
-  const { locale } = useAppState((state) => state.user);
+  const { locale } = useAppState(state => state.user);
 
   // set the locale for the user
   // more languages options can be added here

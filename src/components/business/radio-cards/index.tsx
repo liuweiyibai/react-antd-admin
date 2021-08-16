@@ -12,12 +12,12 @@ export interface MyRadioCardsProps extends RadioGroupProps {
   options: MyRadioCardssOption[];
 }
 
-const MyRadioCards: FC<MyRadioCardsProps> = (props) => {
+const MyRadioCards: FC<MyRadioCardsProps> = props => {
   const { options, ...rest } = props;
   return (
     <div css={styles}>
       <MyRadio.Group buttonStyle="solid" {...rest}>
-        {options?.map((option) => (
+        {options?.map(option => (
           <MyRadio.Button style={{ width: `calc(100% / ${options.length})` }} key={option.value} value={option.value}>
             {option.label}
           </MyRadio.Button>

@@ -14,7 +14,7 @@ const tagsViewSlice = createSlice({
       state.activeTagId = action.payload;
     },
     addTag(state, action: PayloadAction<TagItem>) {
-      if (!state.tags.find((tag) => tag.id === action.payload.id)) {
+      if (!state.tags.find(tag => tag.id === action.payload.id)) {
         state.tags.push(action.payload);
       }
 
@@ -36,7 +36,7 @@ const tagsViewSlice = createSlice({
           lastIndex = i - 1;
         }
       });
-      const tagList = state.tags.filter((tag) => tag.id !== targetKey);
+      const tagList = state.tags.filter(tag => tag.id !== targetKey);
       if (tagList.length && activeTagId === targetKey) {
         if (lastIndex >= 0) {
           state.activeTagId = tagList[lastIndex].id;
@@ -50,7 +50,7 @@ const tagsViewSlice = createSlice({
       state.tags = [state.tags[0]];
     },
     removeOtherTag(state) {
-      const activeTag = state.tags.find((tag) => tag.id === state.activeTagId);
+      const activeTag = state.tags.find(tag => tag.id === state.activeTagId);
       const activeIsDashboard = activeTag!.id === state.tags[0].id;
 
       state.tags = activeIsDashboard ? [state.tags[0]] : [state.tags[0], activeTag!];

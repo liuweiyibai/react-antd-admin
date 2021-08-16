@@ -6,22 +6,22 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use(
-  (config) => {
+  config => {
     return config;
   },
-  (error) => {
+  error => {
     Promise.reject(error);
   },
 );
 
 axiosInstance.interceptors.response.use(
-  (config) => {
+  config => {
     if (config?.data?.message) {
       // $message.success(config.data.message)
     }
     return config?.data;
   },
-  (error) => {
+  error => {
     let errorMessage = '系统异常';
     if (error?.message?.includes('Network Error')) {
       errorMessage = '网络错误，请检查您的网络';

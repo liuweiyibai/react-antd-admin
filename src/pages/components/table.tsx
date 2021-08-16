@@ -55,7 +55,7 @@ new Array(30).fill(undefined).forEach((item, index) => {
 const TalbePage: FC = () => {
   return (
     <div className="aaa">
-      <MyTable<ColumnType> dataSource={data} rowKey={(record) => record.key} height="100%">
+      <MyTable<ColumnType> dataSource={data} rowKey={record => record.key} height="100%">
         <ColumnGroup title="Name">
           <Column title="First Name" dataIndex="firstName" key="firstName" />
           <Column title="Last Name" dataIndex="lastName" key="lastName" />
@@ -68,7 +68,7 @@ const TalbePage: FC = () => {
           key="tags"
           render={(tags: string[]) => (
             <>
-              {tags.map((tag) => (
+              {tags.map(tag => (
                 <Tag color="blue" key={tag}>
                   {tag}
                 </Tag>

@@ -6,7 +6,7 @@ import { useAppDispatch, useAppState } from 'stores';
 import { removeTag, removeOtherTag, removeAllTag } from 'stores/tags-view.store';
 
 const TagsViewAction: FC = () => {
-  const { activeTagId } = useAppState((state) => state.tagsView);
+  const { activeTagId } = useAppState(state => state.tagsView);
   const dispatch = useAppDispatch();
   return (
     <Dropdown

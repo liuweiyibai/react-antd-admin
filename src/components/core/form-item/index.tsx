@@ -25,7 +25,7 @@ const MyFormItem = <T extends Controls | undefined>(props: MyFormItemProps<T>) =
   const required = useMemo(() => {
     if (formItemRequired) return true;
 
-    if (Array.isArray(rules) && rules.some((r) => 'required' in r && r.required)) {
+    if (Array.isArray(rules) && rules.some(r => 'required' in r && r.required)) {
       return true;
     }
   }, [rules, formItemRequired]);
@@ -34,7 +34,7 @@ const MyFormItem = <T extends Controls | undefined>(props: MyFormItemProps<T>) =
   // 为什么需要使用class：为了优化可读性和可维护性，否则只能使用大量的 if else 处理各种 type 的逻辑
   return (
     <Form.Item shouldUpdate noStyle>
-      {(instance) => {
+      {instance => {
         return (
           <Form.Item {...rest} rules={rules} required={required}>
             {type ? new GetControl(props, instance)[type]((props as any).options) : props.children}

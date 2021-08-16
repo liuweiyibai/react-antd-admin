@@ -23,7 +23,7 @@ interface HeaderProps {
 type Action = 'userInfo' | 'userSetting' | 'logout';
 
 const HeaderComponent: FC<HeaderProps> = ({ collapsed, toggle }) => {
-  const { logged, locale, device } = useAppState((state) => state.user);
+  const { logged, locale, device } = useAppState(state => state.user);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { formatMessage } = useLocale();

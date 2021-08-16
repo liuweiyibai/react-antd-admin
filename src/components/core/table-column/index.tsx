@@ -20,7 +20,7 @@ const MyTableColumn = <RecordType extends object = object>(props: MyTableColumnP
     const dataIndex = props.dataIndex;
 
     if (dataIndex && options) {
-      const data = options.find((item) => item.value === getPathValue(record, dataIndex));
+      const data = options.find(item => item.value === getPathValue(record, dataIndex));
 
       if (data) return data.label || '-';
     }

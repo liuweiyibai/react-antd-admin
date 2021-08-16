@@ -55,7 +55,7 @@ const tableColums: MyPageTableOptions<BuniesssUser> = [
     key: 'tags',
     render: (tags, record) => (
       <>
-        {record.tags.map((tag) => (
+        {record.tags.map(tag => (
           <Tag color="blue" key={tag}>
             {tag}
           </Tag>

@@ -6,7 +6,7 @@ import { Select } from 'antd';
 //   return <Select<T> {...props}>{children}</Select>;
 // };
 
-const BaseSelect: FC = (props) => {
+const BaseSelect: FC = props => {
   return <Select {...props} />;
 };
 

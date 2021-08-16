@@ -84,7 +84,7 @@ export class GetControl implements GetBasicControlsProps, GetAdvancedControlsPro
 
   text(options: AdvancedControlPropsOption[]) {
     const value = this.value || this.props.initialValue;
-    const data = options.find((item) => item.value === value);
+    const data = options.find(item => item.value === value);
 
     if (data) {
       return data.label;

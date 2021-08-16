@@ -18,7 +18,7 @@ const WIDTH = 992;
 
 const LayoutPage: FC = () => {
   const [menuList, setMenuList] = useState<MenuList>([]);
-  const { device, collapsed, newUser } = useAppState((state) => state.user);
+  const { device, collapsed, newUser } = useAppState(state => state.user);
   const isMobile = device === 'MOBILE';
   const dispatch = useAppDispatch();
   const { driverStart } = useGuide();
@@ -41,11 +41,11 @@ const LayoutPage: FC = () => {
 
   const initMenuListAll = (menu: MenuList) => {
     const MenuListAll: MenuChild[] = [];
-    menu.forEach((m) => {
+    menu.forEach(m => {
       if (!m?.children?.length) {
         MenuListAll.push(m);
       } else {
-        m?.children.forEach((mu) => {
+        m?.children.forEach(mu => {
           MenuListAll.push(mu);
         });
       }

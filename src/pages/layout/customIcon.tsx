@@ -9,7 +9,7 @@ interface CustomIconProps {
   type: string;
 }
 
-export const CustomIcon: FC<CustomIconProps> = (props) => {
+export const CustomIcon: FC<CustomIconProps> = props => {
   const { type } = props;
   let com = <GuideSvg />;
   if (type === 'guide') {

@@ -11,6 +11,12 @@ declare interface ObjectConstructor {
   keys: <T>(o: T) => (keyof T)[];
 }
 
+declare module '*.less';
+declare module '*.module.less' {
+  const classes: { [className: string]: string };
+  export default classes;
+}
+
 declare module '*.svg' {
   import React = require('react');
   export const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>;

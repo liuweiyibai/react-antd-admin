@@ -2,6 +2,6 @@ import { useState } from 'react';
 
 export function useStates<T extends object>(initialState: T): [T, (state: Partial<T>) => void] {
   const [state, setState] = useState(initialState);
-  const setMergedState = (newState: Partial<T>) => setState((prevState) => ({ ...prevState, ...newState }));
+  const setMergedState = (newState: Partial<T>) => setState(prevState => ({ ...prevState, ...newState }));
   return [state, setMergedState];
 }

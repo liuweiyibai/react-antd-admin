@@ -4,7 +4,7 @@ import { CheckboxProps } from 'antd/lib/checkbox';
 
 type MyButtonProps = CheckboxProps;
 
-const BaseCheckBox: FC<MyButtonProps> = (props) => {
+const BaseCheckBox: FC<MyButtonProps> = props => {
   return <Checkbox {...props} />;
 };
 

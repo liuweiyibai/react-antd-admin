@@ -11,7 +11,7 @@ export interface MyAsideProps extends Omit<TreeProps, 'treeData'> {
   footer?: React.ReactNode;
 }
 
-const MyAside: FC<MyAsideProps> = (props) => {
+const MyAside: FC<MyAsideProps> = props => {
   const { options, header, footer, ...rest } = props;
   return (
     <div css={styles}>

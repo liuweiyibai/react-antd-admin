@@ -16,7 +16,7 @@ interface MenuProps {
 const MenuComponent: FC<MenuProps> = ({ menuList }) => {
   const [openKeys, setOpenkeys] = useState<string[]>([]);
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
-  const { collapsed, device, locale } = useAppState((state) => state.user);
+  const { collapsed, device, locale } = useAppState(state => state.user);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -68,10 +68,10 @@ const MenuComponent: FC<MenuProps> = ({ menuList }) => {
       onOpenChange={onOpenChange as any}
       className="layout-page-sider-menu"
     >
-      {menuList?.map((menu) =>
+      {menuList?.map(menu =>
         menu.children ? (
           <SubMenu key={menu.path} title={getTitie(menu)}>
-            {menu.children.map((child) => (
+            {menu.children.map(child => (
               <Item key={child.path} onClick={() => onMenuClick(child)}>
                 {child.label[locale]}
               </Item>

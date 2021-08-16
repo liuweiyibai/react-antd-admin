@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Modal } from 'antd';
 
-const BaseModal: FC = (props) => {
+const BaseModal: FC = props => {
   return <Modal {...props} />;
 };
 

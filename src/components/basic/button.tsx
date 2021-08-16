@@ -4,7 +4,7 @@ import { ButtonProps } from 'antd/lib/button';
 
 type MyButtonProps = ButtonProps;
 
-const BaseButton: FC<MyButtonProps> = (props) => {
+const BaseButton: FC<MyButtonProps> = props => {
   return <Button {...props} />;
 };
 

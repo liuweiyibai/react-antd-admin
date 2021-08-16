@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Radio } from 'antd';
 
-const BaseRadio: FC = (props) => {
+const BaseRadio: FC = props => {
   return <Radio {...props} />;
 };
 

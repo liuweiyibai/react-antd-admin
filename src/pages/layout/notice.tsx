@@ -14,10 +14,10 @@ const HeaderNoticeComponent: FC = () => {
   const [visible, setVisible] = useState(false);
   const [noticeList, setNoticeList] = useState<Notice[]>([]);
   const [loading, setLoading] = useState(false);
-  const { noticeCount } = useAppState((state) => state.user);
+  const { noticeCount } = useAppState(state => state.user);
 
   const noticeListFilter = <T extends Notice['type']>(type: T) => {
-    return noticeList.filter((notice) => notice.type === type) as Notice<T>[];
+    return noticeList.filter(notice => notice.type === type) as Notice<T>[];
   };
 
   // loads the notices belonging to logged in user
@@ -40,7 +40,7 @@ const HeaderNoticeComponent: FC = () => {
           <TabPane tab={`通知(${noticeListFilter('notification').length})`} key="1">
             <List
               dataSource={noticeListFilter('notification')}
-              renderItem={(item) => (
+              renderItem={item => (
                 <List.Item>
                   <List.Item.Meta
                     avatar={<Avatar src={item.avatar} />}
@@ -55,7 +55,7 @@ const HeaderNoticeComponent: FC = () => {
           <TabPane tab={`消息(${noticeListFilter('message').length})`} key="2">
             <List
               dataSource={noticeListFilter('message')}
-              renderItem={(item) => (
+              renderItem={item => (
                 <List.Item>
                   <List.Item.Meta
                     avatar={<Avatar src={item.avatar} />}
@@ -74,7 +74,7 @@ const HeaderNoticeComponent: FC = () => {
           <TabPane tab={`待办(${noticeListFilter('event').length})`} key="3">
             <List
               dataSource={noticeListFilter('event')}
-              renderItem={(item) => (
+              renderItem={item => (
                 <List.Item>
                   <List.Item.Meta
                     title={
@@ -99,7 +99,7 @@ const HeaderNoticeComponent: FC = () => {
       placement="bottomRight"
       trigger={['click']}
       visible={visible}
-      onVisibleChange={(v) => setVisible(v)}
+      onVisibleChange={v => setVisible(v)}
       overlayStyle={{
         width: 336,
         backgroundColor: '#ffffff',

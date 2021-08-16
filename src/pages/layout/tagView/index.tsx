@@ -8,15 +8,15 @@ import { addTag, removeTag, setActiveTag } from 'stores/tags-view.store';
 const { TabPane } = Tabs;
 
 const TagsView: FC = () => {
-  const { tags, activeTagId } = useAppState((state) => state.tagsView);
-  const { menuList, locale } = useAppState((state) => state.user);
+  const { tags, activeTagId } = useAppState(state => state.tagsView);
+  const { menuList, locale } = useAppState(state => state.user);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const location = useLocation();
 
   // onClick tag
   const onChange = (key: string) => {
-    const tag = tags.find((tag) => tag.id === key);
+    const tag = tags.find(tag => tag.id === key);
     if (tag) {
       setCurrentTag(tag.id);
       navigate(tag.path);
@@ -30,7 +30,7 @@ const TagsView: FC = () => {
 
   const setCurrentTag = useCallback(
     (id?: string) => {
-      const tag = tags.find((item) => {
+      const tag = tags.find(item => {
         if (id) {
           return item.id === id;
         } else {
@@ -47,7 +47,7 @@ const TagsView: FC = () => {
 
   useEffect(() => {
     if (menuList.length) {
-      const menu = menuList.find((m) => m.path === location.pathname);
+      const menu = menuList.find(m => m.path === location.pathname);
       if (menu) {
         // Initializes dashboard page.
         const dashboard = menuList[0];
@@ -76,7 +76,7 @@ const TagsView: FC = () => {
   // fix: remove tab route back auto
   useEffect(() => {
     if (tags && activeTagId) {
-      const target = tags.filter((e) => e.id === activeTagId);
+      const target = tags.filter(e => e.id === activeTagId);
       navigate(target[0].path);
     }
   }, [tags, activeTagId, navigate]);
@@ -92,7 +92,7 @@ const TagsView: FC = () => {
         onEdit={(targetKey, action) => action === 'remove' && onClose(targetKey as string)}
         tabBarExtraContent={<TagsViewAction />}
       >
-        {tags.map((tag) => (
+        {tags.map(tag => (
           <TabPane tab={tag.label[locale]} key={tag.id} closable={tag.closable} />
         ))}
       </Tabs>

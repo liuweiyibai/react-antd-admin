@@ -50,7 +50,7 @@ const TimeLine: FC<{ loading: boolean }> = ({ loading }) => {
           <Legend
             verticalAlign="top"
             height={40}
-            formatter={(value) => <LocaleFormatter id={('app.dashboard.timeline.' + value) as any} />}
+            formatter={value => <LocaleFormatter id={('app.dashboard.timeline.' + value) as any} />}
           />
         </LineChart>
       </ResponsiveContainer>

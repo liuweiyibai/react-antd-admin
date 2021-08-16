@@ -5,8 +5,8 @@ import { useLocale } from 'locales';
 import { RouteProps, useLocation } from 'react-router';
 import { useAppState } from 'stores';
 
-const PrivateRoute: FC<RouteProps> = (props) => {
-  const { logged } = useAppState((state) => state.user);
+const PrivateRoute: FC<RouteProps> = props => {
+  const { logged } = useAppState(state => state.user);
   const navigate = useNavigate();
   const { formatMessage } = useLocale();
   const location = useLocation();

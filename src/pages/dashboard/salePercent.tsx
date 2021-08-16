@@ -60,7 +60,7 @@ const wrapperCol: ColProps = {
 
 const SalePercent: FC<{ loading: boolean }> = ({ loading }) => {
   const [dataType, setDataType] = useState<DataType>('all');
-  const { locale } = useAppState((state) => state.user);
+  const { locale } = useAppState(state => state.user);
   const { formatMessage } = useLocale();
 
   return (
@@ -69,7 +69,7 @@ const SalePercent: FC<{ loading: boolean }> = ({ loading }) => {
       title={formatMessage({ id: 'app.dashboard.salePercent.proportionOfSales' })}
       loading={loading}
       extra={
-        <Radio.Group value={dataType} onChange={(e) => setDataType(e.target.value)} buttonStyle="solid">
+        <Radio.Group value={dataType} onChange={e => setDataType(e.target.value)} buttonStyle="solid">
           <Radio.Button value="all">{formatMessage({ id: 'app.dashboard.salePercent.all' })}</Radio.Button>
           <Radio.Button value="online">{formatMessage({ id: 'app.dashboard.salePercent.online' })}</Radio.Button>
           <Radio.Button value="offline">{formatMessage({ id: 'app.dashboard.salePercent.offline' })}</Radio.Button>
@@ -84,7 +84,7 @@ const SalePercent: FC<{ loading: boolean }> = ({ loading }) => {
                 content={({ active, payload }: any) => {
                   if (active) {
                     const { name, value } = payload[0];
-                    const total = data[dataType].map((d) => d.value).reduce((a, b) => a + b);
+                    const total = data[dataType].map(d => d.value).reduce((a, b) => a + b);
                     const percent = ((value / total) * 100).toFixed(2) + '%';
                     return (
                       <span className="customTooltip">
@@ -115,7 +115,7 @@ const SalePercent: FC<{ loading: boolean }> = ({ loading }) => {
             bordered
             dataSource={data[dataType]}
             renderItem={(item, index) => {
-              const total = data[dataType].map((d) => d.value).reduce((a, b) => a + b);
+              const total = data[dataType].map(d => d.value).reduce((a, b) => a + b);
               const percent = ((item.value / total) * 100).toFixed(2) + '%';
               return (
                 <List.Item>
