@@ -6,11 +6,17 @@ const store = configureStore({
   reducer: rootReducer,
 });
 
+if (process.env.NODE_ENV !== 'production' && module.hot) {
+  module.hot.accept('./rootReducer', () => store.replaceReducer(rootReducer));
+}
+// store.getState
 type AppState = ReturnType<typeof rootReducer>;
 type AppDispatch = typeof store.dispatch;
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 
-export const useAppState = <T extends (state: AppState) => any>(selector: T): ReturnType<T> => useSelector(selector);
+export const useAppState = <T extends (state: AppState) => any>(
+  selector: T,
+): ReturnType<T> => useSelector(selector);
 
 export default store;

@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction, Dispatch, ThunkDispatch } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, Dispatch } from '@reduxjs/toolkit';
 import { apiLogin, apiLogout } from 'api/user.api';
 import { LoginParams, Role } from 'interface/user/login';
 import { Locale, UserState } from 'interface/user/user';
